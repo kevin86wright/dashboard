@@ -23,6 +23,7 @@ py==1.4.30
 py-bcrypt==0.4
 pycparser==2.14
 pycrypto==2.6.1
+PyMySQL==0.6.6
 pytest==2.8.0
 pytest-cov==2.1.0
 pytest-flask==0.10.0

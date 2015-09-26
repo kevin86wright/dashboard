@@ -11,7 +11,7 @@ SECRET_KEY = '\xb9\x8d\xb5\xc2\xc4Q\xe7\x8ej\xe0\x05\xf3\xa3kp\x99l\xe7\xf2i\x00
 # PLEASE USE A DIFFERENT KEY FOR PRODUCTION ENVIRONMENTS!
 
 # SQLAlchemy settings
-SQLALCHEMY_DATABASE_URI = 'sqlite:///../app.sqlite'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://dashboard:r827nA79mnVpMqEZ@localhost/dashboard'
 
 # Flask-Mail settings
 MAIL_USERNAME = 'email@example.com'
