@@ -38,6 +38,13 @@ class Role(db.Model):
     name = db.Column(db.String(50), nullable=False, server_default=u'', unique=True)  # for @roles_accepted()
     label = db.Column(db.Unicode(255), server_default=u'')  # for display purposes
 
+# Define the Microapp data model
+class Microapp(db.Model):
+    __tablename__ = 'microapps'
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(50), nullable=False, server_default=u'', unique=True)  # for @roles_accepted()
+    label = db.Column(db.Unicode(255), server_default=u'')  # for display purposes
+
 
 # Define the UserRoles association model
 class UsersRoles(db.Model):

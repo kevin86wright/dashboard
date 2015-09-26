@@ -1,6 +1,6 @@
 from datetime import datetime
 from app import app, db
-from app.core.models import User, Role
+from app.core.models import User, Role, Microapp
 
 
 def create_users():
@@ -16,6 +16,10 @@ def create_users():
     # Add users
     user = find_or_create_user(u'Admin', u'Example', u'admin@example.com', 'Password1', admin_role)
     user = find_or_create_user(u'User', u'Example', u'user@example.com', 'Password1')
+
+    # Add microapp
+    microapp = find_or_create_microapp('app1', u'App1')
+    microapp = find_or_create_microapp('app2', u'App2')
 
     # Save to DB
     db.session.commit()
@@ -45,4 +49,10 @@ def find_or_create_user(first_name, last_name, email, password, role=None):
         db.session.add(user)
     return user
 
-
+def find_or_create_microapp(name, label):
+    """ Find existing microapp or create new microapp """
+    microapp = Microapp.query.filter(Microapp.name == name).first()
+    if not microapp:
+        microapp = Microapp(name=name, label=label)
+        db.session.add(microapp)
+    return microapp
