@@ -24,7 +24,7 @@
         {% block body %}
         <!-- Application specific HTML -->
         <div id="header-div" class="clearfix with-margins">
-            <div class="pull-left"><a href="{{ url_for('core.home_page') }}"><span class="header-title">Dashboard</span></a></div>
+            <div class="pull-left"><a href="{{ url_for('core.home_page') }}"><span class="header-title">Clusterfvck</span></a></div>
             <div class="pull-right">
                 {% if current_user.is_authenticated %}
                     <a href="{{ url_for('core.user_profile_page') }}">{{ current_user.first_name or current_user.user_auth.username }}</a>
@@ -37,8 +37,8 @@
         </div>
         <div class="with-margins">
             <a href="{{ url_for('core.home_page') }}">Home</a>
-            &nbsp; | &nbsp; <a href="{{ url_for('core.user_page') }}">User</a>
-            &nbsp; | &nbsp; <a href="{{ url_for('core.admin_page') }}">Admin</a>
+            &nbsp; | &nbsp; <a href="{{ url_for('core.user_page') }}">Your Dashboard</a>
+            &nbsp; | &nbsp; <a href="{{ url_for('core.user_page') }}">App Store</a>
         </div>
         <hr class="no-margins"/>
 
