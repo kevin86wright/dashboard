@@ -5,4 +5,10 @@
 
 <p>This page is accessible to authenticated user (users that have signed in).</p>
 
+<div class="list-group">
+{% for microapp in active_microapps %}
+    <a href="microapp/{{ microapp.name }}" class="list-group-item">{{ microapp.name }}</a>
+{% endfor %}
+</div>
+
 {% endblock %}

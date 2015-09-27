@@ -7,6 +7,7 @@ from flask import redirect, render_template, render_template_string, Blueprint
 from flask import request, url_for
 from flask_user import current_user, login_required, roles_accepted
 from app import app, db
+from models import Microapp
 from app.core.models import UserProfileForm
 
 core_blueprint = Blueprint('core', __name__, url_prefix='/')
@@ -28,7 +29,8 @@ def dashboard():
 @core_blueprint.route('appstore')
 @login_required  # Limits access to authenticated users
 def appstore():
-    return render_template('core/appstore.html')
+    active_microapps = db.session.query(Microapp).filter_by(is_active=True).all()
+    return render_template('core/appstore.html', active_microapps=active_microapps)
 
 # The Admin page is accessible to users with the 'admin' role
 @core_blueprint.route('admin')

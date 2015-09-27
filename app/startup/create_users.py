@@ -18,8 +18,8 @@ def create_users():
     user = find_or_create_user(u'User', u'Example', u'user@example.com', 'Password1')
 
     # Add microapp
-    microapp = find_or_create_microapp('app1', u'App1', False)
-    microapp = find_or_create_microapp('app2', u'App2', False)
+    microapp = find_or_create_microapp('app1', u'App1', True)
+    microapp = find_or_create_microapp('app2', u'App2', True)
 
     # Save to DB
     db.session.commit()
