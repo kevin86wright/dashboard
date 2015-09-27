@@ -21,9 +21,14 @@ def home_page():
 # The User page is accessible to authenticated users (users that have logged in)
 @core_blueprint.route('dashboard')
 @login_required  # Limits access to authenticated users
-def user_page():
+def dashboard():
     return render_template('core/dashboard.html')
 
+# The User page is accessible to authenticated users (users that have logged in)
+@core_blueprint.route('appstore')
+@login_required  # Limits access to authenticated users
+def appstore():
+    return render_template('core/appstore.html')
 
 # The Admin page is accessible to users with the 'admin' role
 @core_blueprint.route('admin')

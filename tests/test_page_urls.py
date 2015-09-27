@@ -15,7 +15,7 @@ def test_page_urls(client):
     response = client.post(url_for('user.login'), follow_redirects=True,
                            data=dict(email='user@example.com', password='Password1'))
     assert b'<h1>Home page</h1>' in response.data
-    response = client.get(url_for('core.user_page'))
+    response = client.get(url_for('core.dashboard'))
     assert b'<h1>User page</h1>' in response.data
 
     # Edit User Profile page
@@ -23,7 +23,7 @@ def test_page_urls(client):
     assert b'<h1>User Profile</h1>' in response.data
     response = client.post(url_for('core.user_profile_page'), follow_redirects=True,
                            data=dict(first_name='User', last_name='User'))
-    response = client.get(url_for('core.user_page'))
+    response = client.get(url_for('core.dashboard'))
     assert b'<h1>User page</h1>' in response.data
 
     # Logout
