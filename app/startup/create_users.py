@@ -18,8 +18,8 @@ def create_users():
     user = find_or_create_user(u'User', u'Example', u'user@example.com', 'Password1')
 
     # Add microapp
-    microapp = find_or_create_microapp('app1', u'App1')
-    microapp = find_or_create_microapp('app2', u'App2')
+    microapp = find_or_create_microapp('app1', u'App1', False)
+    microapp = find_or_create_microapp('app2', u'App2', False)
 
     # Save to DB
     db.session.commit()
@@ -49,10 +49,10 @@ def find_or_create_user(first_name, last_name, email, password, role=None):
         db.session.add(user)
     return user
 
-def find_or_create_microapp(name, label):
+def find_or_create_microapp(name, label, is_active):
     """ Find existing microapp or create new microapp """
     microapp = Microapp.query.filter(Microapp.name == name).first()
     if not microapp:
-        microapp = Microapp(name=name, label=label)
+        microapp = Microapp(name=name, label=label, is_active=is_active)
         db.session.add(microapp)
     return microapp

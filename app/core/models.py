@@ -44,6 +44,7 @@ class Microapp(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(50), nullable=False, server_default=u'', unique=True)  # for @roles_accepted()
     label = db.Column(db.Unicode(255), server_default=u'')  # for display purposes
+    is_active = db.Column(db.Boolean(), nullable=False, server_default=u'0')
 
 
 # Define the UserRoles association model
